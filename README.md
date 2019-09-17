@@ -1,9 +1,21 @@
-### key-value-pair
+## key-value-pair
 
 
 It is a simple key value store web service.
 
 python 3.5 is required.
+
+### Directory Structure
+```
+├── backend
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── server.py
+├── frontend
+│   ├── client.py
+│   └── requirements.txt
+└── README.md
+```
 
 #### To setup the server run following commands:
 ```
