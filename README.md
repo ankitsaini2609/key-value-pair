@@ -5,7 +5,7 @@ It is a simple key value store web service.
 
 python 3.5 is required.
 
-To setup the server run following commands:
+#### To setup the server run following commands:
 ```
 git clone https://github.com/ankitsaini2609/key-value-pair.git
 cd key-value-pair/backend
