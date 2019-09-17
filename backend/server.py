@@ -40,6 +40,22 @@ def get_value(key):
     return action_keys_value[key]
 
 
+def alert_user(key):
+    """
+    It will send the alert to the user.
+    :param key: they key which is changed and added to user watchlist
+    :return:
+    """
+    global users
+    for user in users:
+        if key in user.watchlist:
+            try:
+                user.socket.send(
+                    json.dumps({'status': 1, 'message': key + ' has been updated to ' + str(user_data[key])}))
+            except Exception as err:
+                users.remove(user)
+
+
 def process_request(user, message):
     """
     It will process the request of the user.
@@ -47,7 +63,37 @@ def process_request(user, message):
     :param message: what user is requesting
     :return: response according to user request
     """
+    global user_data
+    global watch_list
+    response_message = {'message': 'Successful', 'status': 1}
+    action = get_value(message['action'])
+    if action == 'get':
+        response_message['message'] = str(user_data.get(message['data'], None))
+    elif action == 'put':
+        try:
+            key, value, watch = message['data'].split(",")
+            user_data[key] = value
+            if key in watch_list:
+                alert_user(key)
+            elif watch:
+                watch_list.append(key)
+                user.watchlist.append(key)
+        except Exception as err:
+            response_message['status'] = 0
+            response_message['message'] = err.__str__()
+    elif action == 'delete':
+        try:
+            del user_data[message['data']]
+        except Exception as err:
+            response_message['status'] = 0
+            response_message['message'] = err.__str__()
+    elif action == 'watch':
+        if message['data'] not in user.watchlist:
+            user.watchlist.append(message['data'])
+    elif action == 'show_all':
+        response_message['message'] = json.dumps(user_data)
 
+    return json.dumps(response_message)
 
 
 class User:
