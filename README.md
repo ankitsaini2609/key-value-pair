@@ -7,4 +7,4 @@ To setup run following commands:
 > cd key-value-pair/backend
 > docker build -t server .
 
-you need to run the docker image
+you need to run the docker image 
