@@ -3,9 +3,9 @@ try:
     import thread
 except ImportError:
     import _thread as thread
-from colorama import Fore, init
 import time
 import json
+from colorama import Fore, init
 
 
 init(autoreset=True)  # To reset the terminal color
@@ -22,9 +22,9 @@ def get_value(key):
 
 def get_data(action_code):
     """
-    on the basis of action it will choose the option.
-    :param action:
-    :return:
+    On the basis of action it will choose the option.
+    :param action_code:
+    :return: request data
     """
     action = get_value(action_code)
     if action == "get":
@@ -66,7 +66,7 @@ def main(ws):
 
 def on_message(ws, message):
     """
-    callable object which is called when received data.
+    Callable object which is called when received data.
     on_message has 2 arguments.
     :param ws: class object
     :param message: is utf-8 string which we get from the server.
@@ -82,7 +82,7 @@ def on_message(ws, message):
 
 def on_error(ws, error):
     """
-     callable object which is called when we get error.
+     Callable object which is called when we get error.
      on_error has 2 argument:
      :param ws: class object
      :param error: exception object
@@ -91,7 +91,7 @@ def on_error(ws, error):
 
 def on_close(ws):
     """
-    callable object which is called when closed the connection.
+    Callable object which is called when closed the connection.
     on_close has one argument.
     :param ws: class object
     :return:
@@ -99,10 +99,11 @@ def on_close(ws):
     print("### closed ###")
 
 def on_open(ws):
-    """callable object which is called at opening websocket.
-       this function has one argument.
-       :param ws: class object
-       :return:
+    """
+    Callable object which is called at opening websocket.
+    this function has one argument.
+    :param ws: class object
+    :return:
     """
     def run(*args):
         main(ws)
