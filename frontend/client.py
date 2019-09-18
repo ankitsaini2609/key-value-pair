@@ -22,7 +22,7 @@ def get_value(key):
 
 def get_data(action_code):
     """
-    on the basis of action it will choose the option.
+    On the basis of action it will choose the option.
     :param action_code:
     :return: request data
     """
