@@ -99,10 +99,11 @@ def on_close(ws):
     print("### closed ###")
 
 def on_open(ws):
-    """callable object which is called at opening websocket.
-       this function has one argument.
-       :param ws: class object
-       :return:
+    """
+    callable object which is called at opening websocket.
+    this function has one argument.
+    :param ws: class object
+    :return:
     """
     def run(*args):
         main(ws)
