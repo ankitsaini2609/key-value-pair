@@ -69,7 +69,7 @@ def on_message(ws, message):
     Callable object which is called when received data.
     on_message has 2 arguments.
     :param ws: class object
-    :param message: is utf-8 string which we get from the server.
+    :param message: is utf-8 string which we receive from the server.
     :return:
     """
     print(Fore.GREEN + "one new message received from server")
