@@ -26,8 +26,8 @@ docker run -p 80:80 server
 ```
 
 #### To setup the client run following commands:
-pip3 install -r frontend/requirements.txt
+**pip3 install -r frontend/requirements.txt**
 
 Now find the ip address of docker and replace it in client file in this [line](https://github.com/ankitsaini2609/key-value-pair/blob/4116b1bd72da0fa624287bd2597eabd974da83c0/frontend/client.py#L114). 
 
-python3.5 client.py
+**python3.5 client.py**
