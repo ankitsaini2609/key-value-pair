@@ -16,7 +16,7 @@ RUN apk add --no-cache --virtual .build-deps \
     pip install --no-cache-dir -r requirements.txt && \
     apk del .build-deps
 
-#coping rest of the code
+#copying rest of the code
 COPY . /app
 
 #Exposing the needed port
