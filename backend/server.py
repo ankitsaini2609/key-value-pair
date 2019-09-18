@@ -1,8 +1,8 @@
 #!/usr/bin/python3.5
 
+import json
 from gevent import pywsgi
 from flask import Flask
-import json
 from colorama import Fore, init
 from flask_sockets import Sockets
 from geventwebsocket.handler import WebSocketHandler
@@ -23,9 +23,9 @@ welcome_message = Fore.GREEN + """
                 1 - Get the key value pair 
                 2 - Put the key value pair 
                 3 - Delete key value pair 
-                4 - watch the key         
-                5 - show all
-                6 - exit
+                4 - Watch the key         
+                5 - Show all
+                6 - Exit
 
 """
 
