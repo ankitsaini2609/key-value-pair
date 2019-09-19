@@ -37,4 +37,4 @@ python3.5 client.py
 ```
 
 
-check the usage video :)
+check the usage [video](https://youtu.be/gPaohjn_ttk) :)
